@@ -391,15 +391,15 @@ Generated on: ${new Date().toLocaleDateString()}`
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-4"
         >
-          <div className="flex items-center justify-center gap-3">
-            <div className="p-3 bg-blue-600 rounded-full">
-              <Globe className="h-8 w-8 text-white" />
+          <div className="flex items-center justify-center gap-2 sm:gap-3">
+            <div className="p-2 sm:p-3 bg-blue-600 rounded-full">
+              <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Restaurant Digital Presence Proposal
             </h1>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Professional proposal system for restaurant digital transformation. 
             Select your services, choose your development approach, and get a detailed cost estimate.
           </p>
