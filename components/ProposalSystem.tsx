@@ -88,6 +88,7 @@ export default function ProposalSystem() {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
   const [isCopying, setIsCopying] = useState(false)
   const [isExporting, setIsExporting] = useState(false)
+  const [currentStep, setCurrentStep] = useState("services")
 
   const flatServices = useMemo(() => 
     SERVICE_CATEGORIES.flatMap(cat => cat.services), []
@@ -269,6 +270,18 @@ Please copy this content and send it from your email client.`
     }
   }
 
+  const goToStep = (step: string) => {
+    setCurrentStep(step)
+    // Smooth scroll to the "Project Setup Steps" section when changing steps
+    const projectSetupSection = document.querySelector('[data-section="project-setup"]')
+    if (projectSetupSection) {
+      projectSetupSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   const exportData = () => {
     setIsExporting(true)
     try {
@@ -390,6 +403,17 @@ Generated on: ${new Date().toLocaleDateString()}`
             Professional proposal system for restaurant digital transformation. 
             Select your services, choose your development approach, and get a detailed cost estimate.
           </p>
+          <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+            <span>Powered by</span>
+            <a 
+              href="https://usertrybe.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+            >
+              Usertrybe.com
+            </a>
+          </div>
         </motion.header>
 
         {/* Client Information */}
@@ -585,11 +609,11 @@ Generated on: ${new Date().toLocaleDateString()}`
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <div className="text-center mb-4">
+          <div className="text-center mb-4" data-section="project-setup">
             <h2 className="text-lg font-bold text-gray-800">Project Setup Steps</h2>
           </div>
           
-          <Tabs defaultValue="services" className="space-y-6">
+          <Tabs value={currentStep} onValueChange={setCurrentStep} className="space-y-6">
             <TabsList className="grid w-full grid-cols-3 bg-white">
               <TabsTrigger 
                 value="services" 
@@ -718,9 +742,30 @@ Generated on: ${new Date().toLocaleDateString()}`
                   </motion.div>
                 )
               })}
+              
+              {/* Next Step Button - End of Step 1 */}
+              <div className="flex justify-end mt-6">
+                <Button 
+                  onClick={() => goToStep("summary")}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 transition-all duration-200 hover:scale-105 hover:shadow-lg"
+                >
+                  Next: Project Summary →
+                </Button>
+              </div>
             </TabsContent>
 
             <TabsContent value="summary" className="space-y-6">
+              {/* Previous Step Button */}
+              <div className="flex justify-start mb-4">
+                <Button 
+                  variant="outline"
+                  onClick={() => goToStep("services")}
+                  className="text-gray-600 hover:text-gray-700 border-gray-300 hover:border-gray-400 px-4 py-2 transition-all duration-200 hover:scale-105"
+                >
+                  ← Back to Services
+                </Button>
+              </div>
+              
               <Card className="bg-white/80 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -845,6 +890,17 @@ Generated on: ${new Date().toLocaleDateString()}`
             </TabsContent>
 
             <TabsContent value="samples" className="space-y-6">
+              {/* Previous Step Button */}
+              <div className="flex justify-start mb-4">
+                <Button 
+                  variant="outline"
+                  onClick={() => goToStep("summary")}
+                  className="text-gray-600 hover:text-gray-700 border-gray-300 hover:border-gray-400 px-4 py-2 transition-all duration-200 hover:scale-105"
+                >
+                  ← Back to Project Summary
+                </Button>
+              </div>
+              
               <Card className="bg-white/80 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -1034,6 +1090,17 @@ Generated on: ${new Date().toLocaleDateString()}`
         >
           <p>Built for Dutch restaurants • Currency: EUR • Estimates only, not binding quotes</p>
           <p className="mt-1">© 2025 Restaurant Digital Presence Proposal System</p>
+          <div className="mt-3 flex items-center justify-center gap-2">
+            <span>Powered by</span>
+            <a 
+              href="https://usertrybe.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+            >
+              Usertrybe.com
+            </a>
+          </div>
         </motion.footer>
       </div>
 
