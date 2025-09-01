@@ -614,24 +614,27 @@ Generated on: ${new Date().toLocaleDateString()}`
           </div>
           
           <Tabs value={currentStep} onValueChange={setCurrentStep} className="space-y-6">
-            <TabsList className="grid w-full grid-cols-3 bg-white">
+            <TabsList className="grid w-full grid-cols-3 bg-white h-auto">
               <TabsTrigger 
                 value="services" 
-                className="py-2 font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
+                className="py-2 px-1 sm:px-3 text-xs sm:text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
               >
-                1. Select Services
+                <span className="hidden sm:inline">1. Select Services</span>
+                <span className="sm:hidden">1. Services</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="summary" 
-                className="py-2 font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
+                className="py-2 px-1 sm:px-3 text-xs sm:text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
               >
-                2. Project Summary
+                <span className="hidden sm:inline">2. Project Summary</span>
+                <span className="sm:hidden">2. Summary</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="samples" 
-                className="py-2 font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
+                className="py-2 px-1 sm:px-3 text-xs sm:text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
               >
-                3. Sample Websites
+                <span className="hidden sm:inline">3. Sample Websites</span>
+                <span className="sm:hidden">3. Samples</span>
               </TabsTrigger>
             </TabsList>
 
@@ -913,24 +916,27 @@ Generated on: ${new Date().toLocaleDateString()}`
                 </CardHeader>
                 <CardContent>
                   <Tabs defaultValue="nocode" className="w-full">
-                    <TabsList className="grid w-full grid-cols-3">
+                    <TabsList className="grid w-full grid-cols-3 h-auto">
                       <TabsTrigger 
                         value="nocode" 
-                        className="py-1 font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
+                        className="py-1 px-1 sm:px-2 text-xs sm:text-sm font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
                       >
-                        No-Code
+                        <span className="hidden sm:inline">No-Code</span>
+                        <span className="sm:hidden">No-Code</span>
                       </TabsTrigger>
                       <TabsTrigger 
                         value="cms" 
-                        className="py-1 font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
+                        className="py-1 px-1 sm:px-2 text-xs sm:text-sm font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
                       >
-                        CMS
+                        <span className="hidden sm:inline">CMS</span>
+                        <span className="sm:hidden">CMS</span>
                       </TabsTrigger>
                       <TabsTrigger 
                         value="custom" 
-                        className="py-1 font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
+                        className="py-1 px-1 sm:px-2 text-xs sm:text-sm font-medium data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:shadow-sm"
                       >
-                        Custom Dev
+                        <span className="hidden sm:inline">Custom Dev</span>
+                        <span className="sm:hidden">Custom</span>
                       </TabsTrigger>
                     </TabsList>
 
