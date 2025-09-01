@@ -491,35 +491,37 @@ Generated on: ${new Date().toLocaleDateString()}`
                     key={devApproach.key}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`relative border-2 rounded-xl p-6 cursor-pointer transition-all ${
+                    className={`relative border-2 rounded-xl p-4 sm:p-6 cursor-pointer transition-all ${
                       approach === devApproach.key
                         ? "border-blue-500 bg-blue-50 shadow-lg"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
-                    <div className="flex items-start gap-3">
-                      <RadioGroupItem value={devApproach.key} />
-                      <div className="flex-1 space-y-3">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <RadioGroupItem value={devApproach.key} className="flex-shrink-0 mt-1" />
+                      <div className="flex-1 space-y-2 sm:space-y-3 min-w-0">
                         <div>
-                          <div className="font-semibold text-lg">{devApproach.label}</div>
-                          <div className="text-sm text-gray-600 font-medium">{devApproach.subtitle}</div>
+                          <div className="font-semibold text-base sm:text-lg break-words">{devApproach.label}</div>
+                          <div className="text-xs sm:text-sm text-gray-600 font-medium break-words">{devApproach.subtitle}</div>
                         </div>
-                        <p className="text-sm text-gray-600">{devApproach.description}</p>
+                        <p className="text-xs sm:text-sm text-gray-600 break-words leading-relaxed">{devApproach.description}</p>
                         
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="h-4 w-4 text-green-600" />
-                            <span className="font-medium">Best for:</span>
-                            <span className="text-gray-600">{devApproach.bestFor}</span>
+                        <div className="space-y-1 sm:space-y-2">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                            <div className="flex items-center gap-1 sm:gap-2">
+                              <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 flex-shrink-0" />
+                              <span className="font-medium">Best for:</span>
+                            </div>
+                            <span className="text-gray-600 break-words">{devApproach.bestFor}</span>
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2 text-xs">
                           <div className="space-y-1">
                             <div className="font-medium text-green-700">Pros:</div>
                             <ul className="space-y-1">
                               {devApproach.pros.map((pro, idx) => (
-                                <li key={idx} className="text-gray-600">• {pro}</li>
+                                <li key={idx} className="text-gray-600 break-words">• {pro}</li>
                               ))}
                             </ul>
                           </div>
@@ -527,7 +529,7 @@ Generated on: ${new Date().toLocaleDateString()}`
                             <div className="font-medium text-red-700">Cons:</div>
                             <ul className="space-y-1">
                               {devApproach.cons.map((con, idx) => (
-                                <li key={idx} className="text-gray-600">• {con}</li>
+                                <li key={idx} className="text-gray-600 break-words">• {con}</li>
                               ))}
                             </ul>
                           </div>
@@ -540,15 +542,16 @@ Generated on: ${new Date().toLocaleDateString()}`
 
               <Separator />
 
-              <div className="flex flex-wrap items-center gap-6">
-                <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 sm:gap-6">
+                <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
                   <Switch 
                     checked={rushDelivery} 
                     onCheckedChange={setRushDelivery} 
+                    className="flex-shrink-0"
                   />
-                  <div className="flex items-center gap-2 group relative">
-                    <Info className="h-4 w-4 text-blue-500 cursor-help" />
-                    <Label className="font-medium">Accelerated Delivery</Label>
+                  <div className="flex items-center gap-1 sm:gap-2 group relative flex-1 min-w-0">
+                    <Info className="h-3 w-3 sm:h-4 sm:w-4 text-blue-500 cursor-help flex-shrink-0" />
+                    <Label className="font-medium text-sm sm:text-base break-words">Accelerated Delivery</Label>
                     {/* Tooltip */}
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50 border border-gray-700">
                       <div className="text-center">
@@ -563,15 +566,15 @@ Generated on: ${new Date().toLocaleDateString()}`
                       <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                     </div>
                   </div>
-                  <Badge variant="secondary" className="ml-2">
+                  <Badge variant="secondary" className="ml-1 sm:ml-2 text-xs flex-shrink-0">
                     -25% timeline
                   </Badge>
                 </div>
                 
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 group relative">
-                    <Info className="h-4 w-4 text-blue-500 cursor-help" />
-                    <Label className="font-medium whitespace-nowrap">Contingency</Label>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                  <div className="flex items-center gap-1 sm:gap-2 group relative">
+                    <Info className="h-3 w-3 sm:h-4 sm:w-4 text-blue-500 cursor-help flex-shrink-0" />
+                    <Label className="font-medium text-sm sm:text-base whitespace-nowrap">Contingency</Label>
                     {/* Tooltip */}
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50 border border-gray-700">
                       <div className="text-center">
@@ -586,17 +589,19 @@ Generated on: ${new Date().toLocaleDateString()}`
                       <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                     </div>
                   </div>
-                  <Slider 
-                    className="w-32" 
-                    value={[contingencyPercentage]} 
-                    onValueChange={(value) => setContingencyPercentage(value[0])} 
-                    min={0} 
-                    max={30} 
-                    step={5} 
-                  />
-                  <Badge variant="outline" className="min-w-[60px]">
-                    {contingencyPercentage}%
-                  </Badge>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <Slider 
+                      className="w-24 sm:w-32 flex-1" 
+                      value={[contingencyPercentage]} 
+                      onValueChange={(value) => setContingencyPercentage(value[0])} 
+                      min={0} 
+                      max={30} 
+                      step={5} 
+                    />
+                    <Badge variant="outline" className="min-w-[50px] sm:min-w-[60px] text-xs">
+                      {contingencyPercentage}%
+                    </Badge>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -652,16 +657,16 @@ Generated on: ${new Date().toLocaleDateString()}`
                   >
                     <Card className="bg-white/80 backdrop-blur-sm">
                       <CardHeader>
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                           <div className="flex items-center gap-3">
-                            {IconComponent && <IconComponent className="h-6 w-6 text-blue-600" />}
-                            <div>
-                              <CardTitle className="text-xl">{category.name}</CardTitle>
-                              <p className="text-gray-600">{category.description}</p>
+                            {IconComponent && <IconComponent className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 flex-shrink-0" />}
+                            <div className="min-w-0 flex-1">
+                              <CardTitle className="text-lg sm:text-xl break-words">{category.name}</CardTitle>
+                              <p className="text-sm sm:text-base text-gray-600 break-words">{category.description}</p>
                             </div>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <Badge variant="outline">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                            <Badge variant="outline" className="self-start sm:self-center">
                               {selected}/{total} selected
                             </Badge>
                             <div className="flex items-center gap-2">
@@ -670,7 +675,7 @@ Generated on: ${new Date().toLocaleDateString()}`
                                 size="sm"
                                 onClick={() => toggleCategory(category.id, true)}
                                 disabled={selected === total}
-                                className="whitespace-nowrap"
+                                className="whitespace-nowrap text-xs sm:text-sm"
                               >
                                 Select All
                               </Button>
@@ -679,7 +684,7 @@ Generated on: ${new Date().toLocaleDateString()}`
                                 size="sm"
                                 onClick={() => toggleCategory(category.id, false)}
                                 disabled={selected === 0}
-                                className="whitespace-nowrap"
+                                className="whitespace-nowrap text-xs sm:text-sm"
                               >
                                 Clear
                               </Button>
@@ -688,12 +693,12 @@ Generated on: ${new Date().toLocaleDateString()}`
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <div className="grid md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                           {category.services.map((service) => (
                             <motion.div
                               key={service.id}
                               whileHover={{ scale: 1.01 }}
-                              className={`flex items-start gap-3 p-4 rounded-xl border-2 transition-all ${
+                              className={`flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl border-2 transition-all ${
                                 selectedServices[service.id]
                                   ? "border-blue-500 bg-blue-50"
                                   : "border-gray-200 hover:border-gray-300"
@@ -703,16 +708,17 @@ Generated on: ${new Date().toLocaleDateString()}`
                                 id={service.id}
                                 checked={!!selectedServices[service.id]}
                                 onCheckedChange={() => toggleService(service.id)}
+                                className="flex-shrink-0 mt-0.5"
                               />
-                              <div className="flex-1 space-y-2">
-                                <div className="flex items-start justify-between">
+                              <div className="flex-1 space-y-2 min-w-0">
+                                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-2">
                                   <label 
                                     htmlFor={service.id} 
-                                    className="font-medium cursor-pointer flex-1"
+                                    className="font-medium cursor-pointer flex-1 break-words text-sm sm:text-base"
                                   >
                                     {service.label}
                                     {service.essential && (
-                                      <Badge variant="secondary" className="ml-2 text-xs">
+                                      <Badge variant="secondary" className="ml-1 sm:ml-2 text-xs">
                                         Essential
                                       </Badge>
                                     )}
@@ -720,18 +726,18 @@ Generated on: ${new Date().toLocaleDateString()}`
                                 </div>
                                 
                                 {service.description && (
-                                  <p className="text-sm text-gray-600">{service.description}</p>
+                                  <p className="text-xs sm:text-sm text-gray-600 break-words leading-relaxed">{service.description}</p>
                                 )}
                                 
-                                <div className="flex items-center gap-3 text-sm">
-                                  <Badge variant="outline">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs sm:text-sm">
+                                  <Badge variant="outline" className="self-start">
                                     {service.recurring 
                                       ? `${formatCurrency(service.recurring.monthly)}/mo`
                                       : formatCurrency(service.price[approach])
                                     }
                                   </Badge>
                                   {!service.recurring && (
-                                    <span className="text-gray-500">
+                                    <span className="text-gray-500 text-xs sm:text-sm">
                                       • {formatDays(service.days[approach])} effort
                                     </span>
                                   )}
